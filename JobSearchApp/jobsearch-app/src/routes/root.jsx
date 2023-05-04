@@ -1,5 +1,10 @@
-import { Outlet, Link, useLoaderData, Form } from "react-router-dom";
+import { Outlet, Link, useLoaderData} from "react-router-dom";
+import Button from '@mui/material/Button';
 import { getContacts, createContact } from "../contacts";
+import {Main} from '../components/Main/Main';
+import { Description } from "../components/Description/Description";
+import { Provider } from "react-redux";
+import store from "../redux/store";
 
 export async function loader() {
     const contacts = await getContacts();
@@ -9,40 +14,15 @@ export async function loader() {
 export async function action() {
     const contact = await createContact();
     return { contact };
-  }
+}
+
 
 export default function Root() {
     const { contacts } = useLoaderData();
     return (
-        <>
+        <Provider store={store}>
             <div id="sidebar">
                 <h1>React Router Contacts</h1>
-                <div>
-                    <form id="search-form" role="search">
-                        <input
-                            id="q"
-                            aria-label="Search contacts"
-                            placeholder="Search"
-                            type="search"
-                            name="q"
-                        />
-                        <div
-                            id="search-spinner"
-                            aria-hidden
-                            hidden={true}
-                        />
-                        <div
-                            className="sr-only"
-                            aria-live="polite"
-                        ></div>
-                    </form>
-                    <form method="post">
-                        <button type="submit">New</button>
-                    </form>
-                    <Form method="post">
-                        <button type="submit">New</button>
-                    </Form>
-                </div>
                 <nav>
                     {contacts.length ? (
                         <ul>
@@ -66,11 +46,19 @@ export default function Root() {
                             <i>No contacts</i>
                         </p>
                     )}
+                    <Button variant="contained" style={{width : "55%"}}>Elanar</Button> <br /> <br />
+                    <Button variant="contained" style={{width : "55%"}}>Kategoriyalar</Button> <br /> <br />
+                    <Button variant="contained" style={{width : "55%"}}>Sənaye</Button> <br /> <br />
+                    <Button variant="contained" style={{width : "55%"}}>Şirkət</Button>
                 </nav>
             </div>
-            <div id="detail">
-                <Outlet />
+            <div id="detail" style={{paddingInline : 0}}>
+                {/* <Outlet /> */}
+                    <div style={{display : 'flex', justifyContent : "space-between"}}>
+                    <Main/>
+                    <Description/>
+                    </div>
             </div>
-        </>
+        </Provider>
     );
 }

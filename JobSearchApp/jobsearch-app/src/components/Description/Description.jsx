@@ -1,5 +1,7 @@
 //import React, { useState } from "react";
 
+import { useSelector } from "react-redux";
+
 
 
 const Description = (props) => {
@@ -9,10 +11,22 @@ const Description = (props) => {
     //     setIsChecked(!isChecked);
     // };
 
+    const styledObj = {
+        width: "47%",
+        borderLeft: "1px solid darkred",
+        paddingLeft: "20px"
+    }
+
+    const { data, id } = useSelector(state => state);
 
     return (
-        <div className="preview">
-            <p>{props.job.title}</p>
+        <div className="preview" style={styledObj}>
+            <p>{data.filter(item => item.id == id).map((elem, i) => (
+                <>
+                    <h2 key={i}>{elem.id} {elem.jobTitle}</h2>
+                    <p>{elem.description}</p>
+                </>
+            ))}</p>
         </div>
     );
 };

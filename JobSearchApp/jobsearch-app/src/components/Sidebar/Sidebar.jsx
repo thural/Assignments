@@ -1,5 +1,5 @@
 //import React, { useState } from "react";
-
+import Button from '@mui/material/Button';
 
 
 const Sidebar = () => {
@@ -17,7 +17,7 @@ const Sidebar = () => {
                 <div className="menu-button">Elanlar</div>
                 <div className="menu-button">Kateqoriyalar</div>
                 <div className="menu-button">Sənaye</div>
-                <div className="menu-button">Şirkətlər</div>
+                <div className="menu-button">Şirkətlər</div>             
             </div>
         </div>
     );
