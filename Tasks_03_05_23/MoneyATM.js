@@ -14,4 +14,4 @@ function moneyATM(money) {
     return arr
 }
 
-console.log(moneyATM(1904))
+console.log(moneyATM(1906))

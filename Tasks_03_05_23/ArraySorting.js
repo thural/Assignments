@@ -31,4 +31,4 @@ function sortOddAndEvenArray(arr){
     return [...oddNums,...evenNums]
 }
 
-console.log(sortOddAndEvenArray([1,4,26,4,7,9,13]))
+console.log(sortOddAndEvenArray([1,4,26,4,7,9,13,16]))
