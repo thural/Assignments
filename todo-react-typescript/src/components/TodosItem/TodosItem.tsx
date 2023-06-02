@@ -1,18 +1,19 @@
-import { TodoItemContainer, DetailsBox } from "./TodosItem.styles";
-import { Text } from "./TodosItem.styles";
+import { TodoItemContainer, DetailsBox } from './TodosItem.styles'
+import { Text } from './TodosItem.styles'
 
 const TodosItem = ({ todo }: any) => {
-  const { id, title, completed } = todo;
+    const { id, title, completed } = todo
+    const sample = 1;
 
-  return (
-    <TodoItemContainer>
-      <DetailsBox>
-        <Text variant="h5">ID: {id}</Text>
-        <Text variant="h4">Title: {title}</Text>
-        <Text variant="h5">Completed: {completed.toString()}</Text>
-      </DetailsBox>
-    </TodoItemContainer>
-  );
-};
+    return (
+        <TodoItemContainer>
+            <DetailsBox>
+                <Text variant="h5">ID: {id}</Text>
+                <Text variant="h4">Title: {title}</Text>
+                <Text variant="h5">Completed: {completed.toString()}</Text>
+            </DetailsBox>
+        </TodoItemContainer>
+    )
+}
 
-export default TodosItem;
+export default TodosItem
