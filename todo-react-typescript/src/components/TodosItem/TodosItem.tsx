@@ -3,7 +3,6 @@ import { Text } from './TodosItem.styles'
 
 const TodosItem = ({ todo }: any) => {
     const { id, title, completed } = todo
-    const sample = 1;
 
     return (
         <TodoItemContainer>
